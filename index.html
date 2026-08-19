@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Cotizador Buyee/Doorzo</title>
 
     <style>
@@ -16,27 +17,46 @@
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #ffffff;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             overflow: hidden;
             position: relative;
 
             background:
-                radial-gradient(circle at 20% 20%, rgba(130, 210, 255, 0.25), transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(150, 120, 255, 0.20), transparent 30%),
-                linear-gradient(160deg, #071a3d 0%, #0b2d5c 45%, #164d83 100%);
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(130, 210, 255, 0.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(150, 120, 255, 0.20),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    160deg,
+                    #071a3d 0%,
+                    #0b2d5c 45%,
+                    #164d83 100%
+                );
         }
 
-        /* Destellos mágicos del fondo */
+        /* Destellos mágicos */
+
         body::before,
         body::after {
             content: "";
             position: absolute;
+
             width: 220px;
             height: 220px;
+
             border-radius: 50%;
             filter: blur(60px);
+
             opacity: 0.35;
             pointer-events: none;
         }
@@ -53,16 +73,20 @@
             right: -80px;
         }
 
-        /* Tarjeta principal */
+        /* Tarjeta */
+
         .card {
             width: 100%;
             max-width: 390px;
+
             padding: 28px 22px 24px;
+
             text-align: center;
             position: relative;
             z-index: 10;
 
             background: rgba(255, 255, 255, 0.10);
+
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
 
@@ -75,34 +99,53 @@
         }
 
         /* Pingüino */
+
         .penguin-container {
             width: 105px;
             height: 105px;
+
             margin: 0 auto 10px;
+
             position: relative;
-            filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+
+            filter:
+                drop-shadow(
+                    0 8px 12px rgba(0, 0, 0, 0.25)
+                );
         }
 
         .penguin {
             width: 100%;
             height: 100%;
-            animation: bounce 3s ease-in-out infinite;
+
+            animation:
+                bounce 3s ease-in-out infinite;
         }
 
         @keyframes bounce {
+
             0%, 100% {
-                transform: translateY(0) scaleX(1);
+                transform:
+                    translateY(0)
+                    scaleX(1);
             }
 
             50% {
-                transform: translateY(-9px) scaleX(1.03);
+                transform:
+                    translateY(-9px)
+                    scaleX(1.03);
             }
         }
 
+        /* Títulos */
+
         h1 {
             font-size: 1.65rem;
+
             margin: 0 0 7px;
+
             color: #f3fbff;
+
             text-shadow:
                 0 0 8px rgba(150, 225, 255, 0.6),
                 0 2px 5px rgba(0, 0, 0, 0.35);
@@ -110,14 +153,21 @@
 
         h2 {
             font-size: 0.95rem;
+
             font-weight: 400;
+
             margin: 0 0 28px;
+
             color: #c9edff;
+
             letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(120, 210, 255, 0.5);
+
+            text-shadow:
+                0 0 8px rgba(120, 210, 255, 0.5);
         }
 
         /* Entrada */
+
         .input-group {
             margin-bottom: 22px;
             text-align: left;
@@ -125,39 +175,57 @@
 
         label {
             display: block;
+
             margin-bottom: 8px;
             padding-left: 4px;
+
             font-size: 0.9rem;
+
             color: #dff5ff;
             font-weight: 500;
         }
 
         .input-wrapper {
             position: relative;
+
             display: flex;
             align-items: center;
         }
 
         .currency-symbol {
             position: absolute;
+
             left: 16px;
+
             color: #cceeff;
             font-size: 1.1rem;
+
             z-index: 2;
         }
 
         input[type="number"] {
             width: 100%;
             height: 54px;
-            padding: 12px 15px 12px 36px;
 
-            border: 1px solid rgba(180, 235, 255, 0.35);
+            padding:
+                12px
+                15px
+                12px
+                36px;
+
+            border:
+                1px solid
+                rgba(180, 235, 255, 0.35);
+
             border-radius: 15px;
 
-            background: rgba(255, 255, 255, 0.11);
+            background:
+                rgba(255, 255, 255, 0.11);
+
             color: #ffffff;
 
             font-size: 1.15rem;
+
             outline: none;
 
             box-shadow:
@@ -168,17 +236,26 @@
         }
 
         input[type="number"]::placeholder {
-            color: rgba(220, 245, 255, 0.5);
+            color:
+                rgba(220, 245, 255, 0.5);
         }
 
         input[type="number"]:focus {
-            border-color: rgba(160, 230, 255, 0.85);
-            background: rgba(255, 255, 255, 0.16);
+            border-color:
+                rgba(160, 230, 255, 0.85);
+
+            background:
+                rgba(255, 255, 255, 0.16);
 
             box-shadow:
-                0 0 0 3px rgba(100, 200, 255, 0.15),
-                0 0 20px rgba(100, 210, 255, 0.25);
+                0 0 0 3px
+                rgba(100, 200, 255, 0.15),
+
+                0 0 20px
+                rgba(100, 210, 255, 0.25);
         }
+
+        /* Ocultar flechas del input */
 
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -191,8 +268,10 @@
         }
 
         /* Resultado */
+
         .result-box {
             margin-top: 22px;
+
             padding: 22px 16px;
 
             background:
@@ -202,76 +281,118 @@
                     rgba(130, 100, 255, 0.12)
                 );
 
-            border: 1px solid rgba(190, 240, 255, 0.25);
+            border:
+                1px solid
+                rgba(190, 240, 255, 0.25);
+
             border-radius: 20px;
 
             box-shadow:
-                inset 0 1px 1px rgba(255, 255, 255, 0.10),
-                0 0 25px rgba(80, 190, 255, 0.08);
+                inset 0 1px 1px
+                rgba(255, 255, 255, 0.10),
+
+                0 0 25px
+                rgba(80, 190, 255, 0.08);
         }
 
         .result-label {
             font-size: 0.78rem;
+
             text-transform: uppercase;
+
             letter-spacing: 2px;
+
             color: #c8edff;
+
             margin-bottom: 7px;
         }
 
         .result-price {
             font-size: 2.15rem;
+
             font-weight: 700;
+
             color: #ffffff;
 
             text-shadow:
-                0 0 8px rgba(180, 240, 255, 0.8),
-                0 0 22px rgba(80, 190, 255, 0.5);
+                0 0 8px
+                rgba(180, 240, 255, 0.8),
+
+                0 0 22px
+                rgba(80, 190, 255, 0.5);
 
             min-height: 42px;
         }
 
         /* Botón */
+
         .reset-btn {
             margin-top: 15px;
-            padding: 8px 18px;
 
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(210, 240, 255, 0.25);
+            padding:
+                8px 18px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            border:
+                1px solid
+                rgba(210, 240, 255, 0.25);
+
             border-radius: 20px;
 
             color: #dff6ff;
+
             font-size: 0.78rem;
 
             cursor: pointer;
+
             transition: all 0.2s ease;
         }
 
         .reset-btn:active {
             transform: scale(0.95);
-            background: rgba(255, 255, 255, 0.18);
+
+            background:
+                rgba(255, 255, 255, 0.18);
         }
 
         /* Copos mágicos */
+
         .snowflake {
             position: absolute;
+
             top: -20px;
+
             color: #ffffff;
+
             user-select: none;
             pointer-events: none;
+
             z-index: 1;
 
             text-shadow:
                 0 0 5px #ffffff,
                 0 0 12px #8ee7ff,
-                0 0 20px rgba(120, 210, 255, 0.9);
+                0 0 20px
+                rgba(120, 210, 255, 0.9);
 
-            animation: magicalFall linear forwards;
+            animation:
+                magicalFall
+                linear
+                forwards;
         }
 
         @keyframes magicalFall {
+
             0% {
                 top: -20px;
-                transform: translateX(0) rotate(0deg) scale(0.8);
+
+                transform:
+                    translateX(0)
+                    rotate(0deg)
+                    scale(0.8);
+
                 opacity: 0;
             }
 
@@ -280,20 +401,31 @@
             }
 
             50% {
-                transform: translateX(35px) rotate(180deg) scale(1);
+                transform:
+                    translateX(35px)
+                    rotate(180deg)
+                    scale(1);
             }
 
             100% {
                 top: 110vh;
-                transform: translateX(-35px) rotate(360deg) scale(0.7);
+
+                transform:
+                    translateX(-35px)
+                    rotate(360deg)
+                    scale(0.7);
+
                 opacity: 0.15;
             }
         }
 
-        /* Ajustes para pantallas pequeñas */
+        /* Celulares pequeños */
+
         @media (max-height: 700px) {
+
             .card {
-                padding: 20px 20px;
+                padding:
+                    20px 20px;
             }
 
             .penguin-container {
@@ -313,6 +445,7 @@
                 padding: 17px;
             }
         }
+
     </style>
 </head>
 
@@ -320,56 +453,157 @@
 
     <div class="card">
 
-        <!-- Pingüino -->
+        <!-- PINGÜINO -->
+
         <div class="penguin-container">
-            <svg class="penguin" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 
-                <!-- Cuerpo Exterior Negro -->
-                <ellipse cx="50" cy="55" rx="30" ry="38" fill="#2d3748"/>
+            <svg
+                class="penguin"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+            >
 
-                <!-- Pancita Blanca -->
-                <ellipse cx="50" cy="58" rx="22" ry="28" fill="#ffffff"/>
+                <!-- Cuerpo exterior -->
+
+                <ellipse
+                    cx="50"
+                    cy="55"
+                    rx="30"
+                    ry="38"
+                    fill="#2d3748"
+                />
+
+                <!-- Pancita -->
+
+                <ellipse
+                    cx="50"
+                    cy="58"
+                    rx="22"
+                    ry="28"
+                    fill="#ffffff"
+                />
 
                 <!-- Alitas -->
-                <ellipse cx="16" cy="55" rx="7" ry="18"
-                    fill="#2d3748"
-                    transform="rotate(15 16 55)"/>
 
-                <ellipse cx="84" cy="55" rx="7" ry="18"
+                <ellipse
+                    cx="16"
+                    cy="55"
+                    rx="7"
+                    ry="18"
                     fill="#2d3748"
-                    transform="rotate(-15 84 55)"/>
+                    transform="rotate(15 16 55)"
+                />
+
+                <ellipse
+                    cx="84"
+                    cy="55"
+                    rx="7"
+                    ry="18"
+                    fill="#2d3748"
+                    transform="rotate(-15 84 55)"
+                />
 
                 <!-- Ojos -->
-                <circle cx="42" cy="38" r="4" fill="#1a202c"/>
-                <circle cx="58" cy="38" r="4" fill="#1a202c"/>
 
-                <circle cx="43" cy="37" r="1.2" fill="#ffffff"/>
-                <circle cx="59" cy="37" r="1.2" fill="#ffffff"/>
+                <circle
+                    cx="42"
+                    cy="38"
+                    r="4"
+                    fill="#1a202c"
+                />
+
+                <circle
+                    cx="58"
+                    cy="38"
+                    r="4"
+                    fill="#1a202c"
+                />
+
+                <circle
+                    cx="43"
+                    cy="37"
+                    r="1.2"
+                    fill="#ffffff"
+                />
+
+                <circle
+                    cx="59"
+                    cy="37"
+                    r="1.2"
+                    fill="#ffffff"
+                />
 
                 <!-- Pico -->
-                <polygon points="45,44 55,44 50,52" fill="#ed8936"/>
+
+                <polygon
+                    points="45,44 55,44 50,52"
+                    fill="#ed8936"
+                />
 
                 <!-- Patitas -->
-                <ellipse cx="38" cy="90" rx="8" ry="4" fill="#ed8936"/>
-                <ellipse cx="62" cy="90" rx="8" ry="4" fill="#ed8936"/>
+
+                <ellipse
+                    cx="38"
+                    cy="90"
+                    rx="8"
+                    ry="4"
+                    fill="#ed8936"
+                />
+
+                <ellipse
+                    cx="62"
+                    cy="90"
+                    rx="8"
+                    ry="4"
+                    fill="#ed8936"
+                />
 
                 <!-- Cachetes -->
-                <circle cx="36" cy="44" r="3" fill="#fc8181" opacity="0.6"/>
-                <circle cx="64" cy="44" r="3" fill="#fc8181" opacity="0.6"/>
+
+                <circle
+                    cx="36"
+                    cy="44"
+                    r="3"
+                    fill="#fc8181"
+                    opacity="0.6"
+                />
+
+                <circle
+                    cx="64"
+                    cy="44"
+                    r="3"
+                    fill="#fc8181"
+                    opacity="0.6"
+                />
+
             </svg>
+
         </div>
 
-        <h1>Cotizador Buyee/Doorzo</h1>
-        <h2>❄️ fallen star ❄️ ☃️</h2>
 
-        <!-- Único dato que ingresa el usuario -->
+        <h1>
+            Cotizador Buyee/Doorzo
+        </h1>
+
+
+        <h2>
+            ❄️ fallen star ❄️ ☃️
+        </h2>
+
+
+        <!-- VALOR DEL PRODUCTO -->
+
         <div class="input-group">
+
             <label for="productValue">
                 Valor del producto (USD):
             </label>
 
             <div class="input-wrapper">
-                <span class="currency-symbol">$</span>
+
+                <span class="currency-symbol">
+                    $
+                </span>
 
                 <input
                     type="number"
@@ -380,17 +614,24 @@
                     inputmode="decimal"
                     oninput="calcularPrecio()"
                 >
+
             </div>
+
         </div>
 
-        <!-- Único valor calculado visible -->
+
+        <!-- ÚNICO RESULTADO VISIBLE -->
+
         <div class="result-box">
 
             <div class="result-label">
                 Precio final
             </div>
 
-            <div class="result-price" id="finalPrice">
+            <div
+                class="result-price"
+                id="finalPrice"
+            >
                 $0,00
             </div>
 
@@ -405,29 +646,50 @@
 
     </div>
 
+
     <script>
 
         /*
+         * ==================================
          * CONFIGURACIÓN INTERNA
+         * ==================================
          *
-         * Estos valores NO se muestran al usuario.
+         * Estos valores no se muestran
+         * al usuario.
          */
 
-        const VALOR_DOLAR = 1580;
-        const RECARGO_FIJO = 2080;
-        const PORCENTAJE = 0.04;
+        const VALOR_DOLAR = 1600;
 
+        const RECARGO_FIJO = 2500;
+
+
+        /*
+         * ==================================
+         * CÁLCULO
+         * ==================================
+         *
+         * Fórmula:
+         *
+         * (USD × 1600) + 2500
+         *
+         */
 
         function calcularPrecio() {
 
             const inputVal =
-                document.getElementById('productValue').value;
+                document.getElementById(
+                    'productValue'
+                ).value;
+
 
             const precioUSD =
                 parseFloat(inputVal);
 
+
             const resultDisplay =
-                document.getElementById('finalPrice');
+                document.getElementById(
+                    'finalPrice'
+                );
 
 
             if (
@@ -435,118 +697,161 @@
                 precioUSD <= 0
             ) {
 
-                resultDisplay.textContent = "$0,00";
+                resultDisplay.textContent =
+                    '$0,00';
+
                 return;
             }
 
 
-            /*
-             * 1. Convertimos el producto de USD a ARS.
-             */
+            /* Conversión de USD a ARS */
+
             const precioConvertido =
                 precioUSD * VALOR_DOLAR;
 
 
-            /*
-             * 2. Calculamos el 4% sobre el valor
-             *    del producto SIN el recargo fijo.
-             */
-            const recargoPorcentaje =
-                precioConvertido * PORCENTAJE;
+            /* Recargo fijo */
 
-
-            /*
-             * 3. Sumamos:
-             *    producto convertido
-             *    + 4%
-             *    + recargo fijo
-             */
             const precioFinal =
                 precioConvertido +
-                recargoPorcentaje +
                 RECARGO_FIJO;
 
 
             /*
-             * Mostramos únicamente el resultado final.
+             * El usuario solamente ve
+             * el precio final.
              */
+
             resultDisplay.textContent =
-                new Intl.NumberFormat('es-AR', {
-                    style: 'currency',
-                    currency: 'ARS',
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }).format(precioFinal);
+                new Intl.NumberFormat(
+                    'es-AR',
+                    {
+                        style: 'currency',
+
+                        currency: 'ARS',
+
+                        minimumFractionDigits: 2,
+
+                        maximumFractionDigits: 2
+                    }
+                ).format(precioFinal);
         }
 
 
+        /*
+         * ==================================
+         * RESTABLECER
+         * ==================================
+         */
+
         function restablecerOperacion() {
 
-            document.getElementById('productValue').value = '';
+            document.getElementById(
+                'productValue'
+            ).value = '';
 
-            document.getElementById('finalPrice').textContent =
+
+            document.getElementById(
+                'finalPrice'
+            ).textContent =
                 '$0,00';
         }
 
 
         /*
-         * Generador de copos mágicos
+         * ==================================
+         * COPOS MÁGICOS
+         * ==================================
          */
+
         function createSnowflake() {
 
             const snowflake =
                 document.createElement('div');
 
-            snowflake.classList.add('snowflake');
+
+            snowflake.classList.add(
+                'snowflake'
+            );
 
 
             const snowTypes = [
+
                 '❄',
+
                 '❅',
+
                 '❆',
+
                 '✦',
+
                 '✧',
+
                 '✧',
+
                 '•'
+
             ];
 
 
             snowflake.textContent =
                 snowTypes[
                     Math.floor(
-                        Math.random() * snowTypes.length
+                        Math.random() *
+                        snowTypes.length
                     )
                 ];
 
 
             snowflake.style.left =
-                Math.random() * 100 + 'vw';
+                Math.random() *
+                100 +
+                'vw';
 
 
             snowflake.style.animationDuration =
-                (Math.random() * 4 + 5) + 's';
+                (
+                    Math.random() *
+                    4 +
+                    5
+                ) +
+                's';
 
 
             snowflake.style.fontSize =
-                (Math.random() * 1.2 + 0.5) + 'em';
+                (
+                    Math.random() *
+                    1.2 +
+                    0.5
+                ) +
+                'em';
 
 
             snowflake.style.opacity =
-                Math.random() * 0.7 + 0.3;
+                Math.random() *
+                0.7 +
+                0.3;
 
 
-            document.body.appendChild(snowflake);
+            document.body.appendChild(
+                snowflake
+            );
 
 
-            setTimeout(() => {
-                snowflake.remove();
-            }, 9000);
+            setTimeout(
+                () => {
+                    snowflake.remove();
+                },
+                9000
+            );
         }
 
 
         /*
-         * Generamos copos continuamente.
+         * Generación continua
+         * de copos y destellos.
          */
+
         setInterval(
             createSnowflake,
             350
@@ -555,4 +860,4 @@
     </script>
 
 </body>
-                </html>
+    </html>
